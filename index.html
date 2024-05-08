@@ -1,106 +1,67 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.65">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #c1c1c1; -webkit-text-stroke: #c1c1c1}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #cdad6a; -webkit-text-stroke: #cdad6a}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #c1c1c1; -webkit-text-stroke: #c1c1c1; min-height: 14.0px}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #d4d69a; -webkit-text-stroke: #d4d69a}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #598a43; -webkit-text-stroke: #598a43}
-    span.s1 {font-kerning: none; color: #6d6d6d; background-color: #181818; -webkit-text-stroke: 0px #6d6d6d}
-    span.s2 {font-kerning: none; background-color: #181818}
-    span.s3 {font-kerning: none; color: #c1c1c1; background-color: #181818; -webkit-text-stroke: 0px #c1c1c1}
-    span.s4 {font-kerning: none; color: #8cd3fe; background-color: #181818; -webkit-text-stroke: 0px #8cd3fe}
-    span.s5 {font-kerning: none; color: #c27e65; background-color: #181818; -webkit-text-stroke: 0px #c27e65}
-    span.s6 {font-kerning: none; color: #4689cc; background-color: #181818; -webkit-text-stroke: 0px #4689cc}
-    span.s7 {font-kerning: none; color: #cdad6a; background-color: #181818; -webkit-text-stroke: 0px #cdad6a}
-    span.s8 {font-kerning: none; color: #a7c598; background-color: #181818; -webkit-text-stroke: 0px #a7c598}
-    span.s9 {font-kerning: none; color: #cacaca; background-color: #181818; -webkit-text-stroke: 0px #cacaca}
-    span.s10 {font-kerning: none; color: #d4d69a; background-color: #181818; -webkit-text-stroke: 0px #d4d69a}
-    span.s11 {font-kerning: none}
-    span.s12 {font-kerning: none; color: #42b3ff; background-color: #181818; -webkit-text-stroke: 0px #42b3ff}
-    span.s13 {font-kerning: none; color: #b76fb3; background-color: #181818; -webkit-text-stroke: 0px #b76fb3}
-    span.s14 {font-kerning: none; color: #598a43; background-color: #181818; -webkit-text-stroke: 0px #598a43}
-    span.s15 {font-kerning: none; color: #43c0a0; background-color: #181818; -webkit-text-stroke: 0px #43c0a0}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+        .image-grid img {
+            max-width: 100%;
+            max-height: 12rem;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!</span><span class="s2">DOCTYPE</span><span class="s3"> </span><span class="s4">html</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1">&lt;</span><span class="s2">html</span><span class="s3"> </span><span class="s4">lang</span><span class="s3">=</span><span class="s5">"en"</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1">&lt;</span><span class="s2">head</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;</span><span class="s6">meta</span><span class="s3"> </span><span class="s2">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;</span><span class="s6">meta</span><span class="s3"> </span><span class="s4">name</span><span class="s3">=</span><span class="s2">"viewport"</span><span class="s3"> </span><span class="s4">content</span><span class="s3">=</span><span class="s2">"width=device-width, initial-scale=1.0"</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;</span><span class="s6">title</span><span class="s1">&gt;</span><span class="s2">Image Gallery</span><span class="s1">&lt;/</span><span class="s6">title</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;</span><span class="s2">style</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s7">body</span><span class="s2"> {</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">font-family</span><span class="s2">: </span><span class="s5">Arial</span><span class="s2">, </span><span class="s5">sans-serif</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">margin</span><span class="s2">: </span><span class="s8">0</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">padding</span><span class="s2">: </span><span class="s8">0</span><span class="s2">;</span></p>
-<p class="p2"><span class="s9"><span class="Apple-converted-space">            </span></span><span class="s2">background-color</span><span class="s9">: </span><span class="s5">#f2f2f2</span><span class="s9">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s9"><span class="Apple-converted-space">        </span></span><span class="s2">.container</span><span class="s9"> {</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">max-width</span><span class="s2">: </span><span class="s8">1200px</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">margin</span><span class="s2">: </span><span class="s8">20px</span><span class="s2"> </span><span class="s5">auto</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">padding</span><span class="s2">: </span><span class="s8">20px</span><span class="s2">;</span></p>
-<p class="p2"><span class="s9"><span class="Apple-converted-space">            </span></span><span class="s2">background-color</span><span class="s9">: </span><span class="s5">#fff</span><span class="s9">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">border-radius</span><span class="s2">: </span><span class="s8">10px</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">box-shadow</span><span class="s2">: </span><span class="s8">0</span><span class="s2"> </span><span class="s8">0</span><span class="s2"> </span><span class="s8">10px</span><span class="s2"> </span><span class="s10">rgba</span><span class="s2">(</span><span class="s8">0</span><span class="s2">, </span><span class="s8">0</span><span class="s2">, </span><span class="s8">0</span><span class="s2">, </span><span class="s8">0.1</span><span class="s2">);</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s9"><span class="Apple-converted-space">        </span></span><span class="s2">.image-grid</span><span class="s9"> {</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">display</span><span class="s2">: </span><span class="s5">grid</span><span class="s2">;</span></p>
-<p class="p2"><span class="s9"><span class="Apple-converted-space">            </span></span><span class="s2">grid-template-columns</span><span class="s9">: </span><span class="s10">repeat</span><span class="s9">(</span><span class="s8">5</span><span class="s9">, </span><span class="s8">1fr</span><span class="s9">);</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">gap</span><span class="s2">: </span><span class="s8">10px</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s9"><span class="Apple-converted-space">        </span></span><span class="s2">.image-grid</span><span class="s9"> </span><span class="s2">img</span><span class="s9"> {</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">max-width</span><span class="s2">: </span><span class="s8">100%</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">max-height</span><span class="s2">: </span><span class="s8">12rem</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">height</span><span class="s2">: </span><span class="s5">auto</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4">border-radius</span><span class="s2">: </span><span class="s8">5px</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s9"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;/</span><span class="s2">style</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/</span><span class="s2">head</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1">&lt;</span><span class="s2">body</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;</span><span class="s6">div</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"container"</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s6">h1</span><span class="s1">&gt;</span><span class="s2">Image Gallery</span><span class="s1">&lt;/</span><span class="s6">h1</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s6">input</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"file"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"fileInput"</span><span class="s3"> </span><span class="s4">multiple</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s6">div</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"image-grid"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"imageGrid"</span><span class="s1">&gt;&lt;/</span><span class="s6">div</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;/</span><span class="s6">div</span><span class="s1">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p1"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;</span><span class="s2">script</span><span class="s1">&gt;</span></p>
-<p class="p8"><span class="s9"><span class="Apple-converted-space">        </span></span><span class="s4">document</span><span class="s9">.</span><span class="s2">getElementById</span><span class="s9">(</span><span class="s5">'fileInput'</span><span class="s9">).</span><span class="s2">addEventListener</span><span class="s9">(</span><span class="s5">'change'</span><span class="s9">, </span><span class="s6">function</span><span class="s9">() {</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s6">const</span><span class="s2"> </span><span class="s12">files</span><span class="s2"> = </span><span class="s6">this</span><span class="s2">.</span><span class="s4">files</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s6">const</span><span class="s2"> </span><span class="s12">imageGrid</span><span class="s2"> = </span><span class="s4">document</span><span class="s2">.</span><span class="s10">getElementById</span><span class="s2">(</span><span class="s5">'imageGrid'</span><span class="s2">);</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p9"><span class="s9"><span class="Apple-converted-space">            </span></span><span class="s2">// Clear existing images</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s12">imageGrid</span><span class="s2">.</span><span class="s4">innerHTML</span><span class="s2"> = </span><span class="s5">''</span><span class="s2">;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
-<p class="p9"><span class="s9"><span class="Apple-converted-space">            </span></span><span class="s2">// Display selected images</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s13">for</span><span class="s2"> (</span><span class="s6">let</span><span class="s2"> </span><span class="s4">i</span><span class="s2"> = </span><span class="s8">0</span><span class="s2">; </span><span class="s4">i</span><span class="s2"> &lt; </span><span class="s12">files</span><span class="s2">.</span><span class="s4">length</span><span class="s2">; </span><span class="s4">i</span><span class="s2">++) {</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s13">if</span><span class="s2"> (</span><span class="s4">i</span><span class="s2"> &gt;= </span><span class="s8">50</span><span class="s2">) </span><span class="s13">break</span><span class="s2">; </span><span class="s14">// Limit to 50 images</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s6">const</span><span class="s2"> </span><span class="s12">file</span><span class="s2"> = </span><span class="s12">files</span><span class="s2">[</span><span class="s4">i</span><span class="s2">];</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s13">if</span><span class="s2"> (</span><span class="s12">file</span><span class="s2">.</span><span class="s4">type</span><span class="s2">.</span><span class="s10">startsWith</span><span class="s2">(</span><span class="s5">'image/'</span><span class="s2">)) {</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s6">const</span><span class="s2"> </span><span class="s12">reader</span><span class="s2"> = </span><span class="s6">new</span><span class="s2"> </span><span class="s15">FileReader</span><span class="s2">();</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s12">reader</span><span class="s2">.</span><span class="s10">onload</span><span class="s2"> = </span><span class="s6">function</span><span class="s2">(</span><span class="s4">event</span><span class="s2">) {</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s6">const</span><span class="s2"> </span><span class="s12">img</span><span class="s2"> = </span><span class="s4">document</span><span class="s2">.</span><span class="s10">createElement</span><span class="s2">(</span><span class="s5">'img'</span><span class="s2">);</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s12">img</span><span class="s2">.</span><span class="s4">src</span><span class="s2"> = </span><span class="s4">event</span><span class="s2">.</span><span class="s4">target</span><span class="s2">.</span><span class="s4">result</span><span class="s2">;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s12">imageGrid</span><span class="s2">.</span><span class="s10">appendChild</span><span class="s2">(</span><span class="s12">img</span><span class="s2">);</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s12">reader</span><span class="s2">.</span><span class="s10">readAsDataURL</span><span class="s2">(</span><span class="s12">file</span><span class="s2">);</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s9"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;/</span><span class="s2">script</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/</span><span class="s2">body</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/</span><span class="s2">html</span><span class="s1">&gt;</span></p>
-<p class="p7"><span class="s11"></span><br></p>
+    <div class="container">
+        <h1>Image Gallery</h1>
+        <input type="file" id="fileInput" multiple>
+        <div class="image-grid" id="imageGrid"></div>
+    </div>
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const files = this.files;
+            const imageGrid = document.getElementById('imageGrid');
+
+            // Clear existing images
+            imageGrid.innerHTML = '';
+
+            // Display selected images
+            for (let i = 0; i < files.length; i++) {
+                if (i >= 50) break; // Limit to 50 images
+                const file = files[i];
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const img = document.createElement('img');
+                        img.src = event.target.result;
+                        imageGrid.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
