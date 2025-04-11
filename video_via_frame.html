@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Video Player</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    textarea {
+      width: 600px;
+      height: 80px;
+      margin-bottom: 10px;
+      resize: none;
+      font-family: monospace;
+    }
+
+    button {
+      padding: 8px 14px;
+      font-size: 14px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    #player {
+      width: 600px;
+      height: 400px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    #player img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    #filmstrip {
+      display: flex;
+      overflow-x: auto;
+      width: 600px;
+      margin-bottom: 15px;
+      gap: 10px;
+    }
+
+    .frame {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0.5;
+      border: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    .frame.active {
+      opacity: 1;
+      border-color: #007BFF;
+    }
+
+    .thumb {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      cursor: pointer;
+      margin-bottom: 4px;
+    }
+
+    .frame-number {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .copy-btn {
+      font-size: 12px;
+      border: none;
+      background: #eee;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+
+    .copy-btn.copied {
+      font-style: italic;
+      color: green;
+    }
+
+    #slider-container {
+      width: 600px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    #speed {
+      width: 100%;
+    }
+
+    label {
+      margin-right: 10px;
+      white-space: nowrap;
+    }
+
+    #controls {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Custom Image Video Player</h2>
+
+  <textarea id="urlInput" placeholder="Paste image URLs separated by SPACE..."></textarea>
+  <button id="startBtn">Start Slideshow</button>
+
+  <div id="controls" style="display:none;">
+    <button id="playBtn">⏸ Pause</button>
+  </div>
+
+  <div id="player"><p>Waiting for image input...</p></div>
+  <div id="filmstrip"></div>
+
+  <div id="slider-container">
+    <label for="speed">Speed (sec/image):</label>
+    <input type="range" id="speed" min="0.5" max="5" step="0.1" value="2.0">
+    <span id="speedValue">2.0s</span>
+  </div>
+
+  <script>
+    const player = document.getElementById("player");
+    const filmstrip = document.getElementById("filmstrip");
+    const speedSlider = document.getElementById("speed");
+    const speedValue = document.getElementById("speedValue");
+    const urlInput = document.getElementById("urlInput");
+    const startBtn = document.getElementById("startBtn");
+    const playBtn = document.getElementById("playBtn");
+    const controls = document.getElementById("controls");
+
+    let images = [];
+    let urls = [];
+    let current = 0;
+    let interval = null;
+    let isPlaying = true;
+    let speed = parseFloat(speedSlider.value) * 1000;
+
+    speedSlider.addEventListener("input", () => {
+      speed = parseFloat(speedSlider.value) * 1000;
+      speedValue.textContent = speedSlider.value + "s";
+      if (isPlaying) restartPlayback();
+    });
+
+    startBtn.addEventListener("click", () => {
+      const input = urlInput.value.trim();
+      if (!input) {
+        alert("Please enter image URLs separated by spaces.");
+        return;
+      }
+
+      urls = input.split(/\s+/);
+      preloadImages(urls).then(loadedImages => {
+        images = loadedImages;
+        current = 0;
+        filmstrip.innerHTML = "";
+        player.innerHTML = "";
+        controls.style.display = "block";
+        playBtn.textContent = "⏸ Pause";
+        isPlaying = true;
+
+        images.forEach((img, index) => {
+          const frame = document.createElement("div");
+          frame.className = "frame";
+          if (index === 0) frame.classList.add("active");
+
+          const thumb = document.createElement("img");
+          thumb.src = img.src;
+          thumb.className = "thumb";
+          thumb.addEventListener("click", () => {
+            current = index;
+            showImage(index);
+            if (isPlaying) restartPlayback();
+          });
+
+          const number = document.createElement("div");
+          number.className = "frame-number";
+          number.textContent = `Frame ${index + 1}`;
+
+          const copyBtn = document.createElement("button");
+          copyBtn.className = "copy-btn";
+          copyBtn.textContent = "Copy URL";
+          copyBtn.addEventListener("click", () => {
+            navigator.clipboard.writeText(img.src);
+            copyBtn.textContent = "Copied";
+            copyBtn.classList.add("copied");
+            setTimeout(() => {
+              copyBtn.textContent = "Copy URL";
+              copyBtn.classList.remove("copied");
+            }, 1200);
+          });
+
+          frame.appendChild(thumb);
+          frame.appendChild(number);
+          frame.appendChild(copyBtn);
+          filmstrip.appendChild(frame);
+        });
+
+        startPlayback();
+      }).catch(() => {
+        alert("Failed to load one or more images. Please check the URLs.");
+      });
+    });
+
+    playBtn.addEventListener("click", () => {
+      if (isPlaying) {
+        clearInterval(interval);
+        playBtn.textContent = "▶️ Play";
+      } else {
+        startPlayback();
+        playBtn.textContent = "⏸ Pause";
+      }
+      isPlaying = !isPlaying;
+    });
+
+    function preloadImages(urls) {
+      return Promise.all(urls.map(url => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = url;
+          img.onload = () => resolve(img);
+          img.onerror = () => reject(new Error("Image failed to load: " + url));
+        });
+      }));
+    }
+
+    function updateFilmstrip() {
+      [...filmstrip.children].forEach((frame, index) => {
+        frame.classList.toggle("active", index === current);
+      });
+    }
+
+    function showImage(index) {
+      current = index;
+      player.innerHTML = "";
+      player.appendChild(images[index]);
+      updateFilmstrip();
+    }
+
+    function startPlayback() {
+      showImage(current);
+      interval = setInterval(() => {
+        current = (current + 1) % images.length;
+        showImage(current);
+      }, speed);
+    }
+
+    function restartPlayback() {
+      if (interval) clearInterval(interval);
+      startPlayback();
+    }
+  </script>
+
+</body>
+</html>
